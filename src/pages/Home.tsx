@@ -34,7 +34,7 @@ const HomePage = () => {
               <PropertyTypePill type="Residential" active={propertyType === "Residential"} onClick={() => setPropertyType("Residential")} />
             </div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 font-playfair leading-tight">
+            <h1 className="text-5xl lg:text-7xl text-white mb-6 font-playfair leading-tight md:text-6xl font-bold">
               Build Your Future, One<br />Property at a Time.
             </h1>
             
@@ -138,7 +138,7 @@ const HomePage = () => {
       </section>
       
       {/* Featured Properties */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-20 px-4 bg-gray-300">
         <div className="container mx-auto">
           <SectionTitle title="Featured Properties" subtitle="Discover Our Exclusive Listings" center />
           
@@ -158,11 +158,11 @@ const HomePage = () => {
       </section>
       
       {/* Services Section */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 bg-gray-200">
         <div className="container mx-auto">
           <SectionTitle title="Our Services" subtitle="Comprehensive Real Estate Solutions" center />
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 bg-gray-200">
             <ServiceBox icon={<HomeIcon size={24} />} title="Property Buying" description="We'll help you find and secure your dream property at the best possible price." />
             <ServiceBox icon={<BarChart4 size={24} />} title="Property Selling" description="Maximize your property's value with our strategic marketing approach." />
             <ServiceBox icon={<Shield size={24} />} title="Property Management" description="We handle the details so you can enjoy worry-free property ownership." />
