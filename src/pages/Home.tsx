@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Home as HomeIcon, Phone, Shield, BarChart4, Award, ChevronDown, Search } from "lucide-react";
@@ -9,28 +8,22 @@ import PropertyCard from "@/components/ui/PropertyCard";
 import TestimonialCard from "@/components/ui/TestimonialCard";
 import { properties } from "@/data/properties";
 import { testimonials } from "@/data/testimonials";
-
 const HomePage = () => {
   // Featured properties (show only 3)
   const featuredProperties = properties.slice(0, 3);
-  
+
   // State for property search
   const [propertyType, setPropertyType] = useState("");
   const [location, setLocation] = useState("");
   const [price, setPrice] = useState("");
   const [rooms, setRooms] = useState("2 Bed rooms");
-  
-  return (
-    <>
+  return <>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center">
         <div className="absolute inset-0 bg-black/40 z-10"></div>
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ 
-            backgroundImage: 'url(https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)'
-          }}
-        ></div>
+        <div className="absolute inset-0 bg-cover bg-center" style={{
+        backgroundImage: 'url(https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)'
+      }}></div>
         
         <div className="container mx-auto px-4 relative z-20">
           <div className="max-w-full animate-fade-in">
@@ -52,54 +45,32 @@ const HomePage = () => {
             </div>
             
             {/* Property Search Panel */}
-            <div className="bg-white rounded-xl p-6 md:p-8 mt-12 shadow-xl w-full max-w-6xl mx-auto">
+            <div className="p-6 md:p-8 mt-12 shadow-xl w-full max-w-6xl mx-auto bg-stone-100 rounded-2xl">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Find the best place</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div className="space-y-2">
                   <label className="block text-gray-700 font-medium">Looking for</label>
-                  <Input 
-                    type="text" 
-                    placeholder="Enter type"
-                    className="w-full"
-                  />
+                  <Input type="text" placeholder="Enter type" className="w-full" />
                 </div>
                 <div className="space-y-2">
                   <label className="block text-gray-700 font-medium">Price</label>
                   <div className="relative">
-                    <Input
-                      type="text"
-                      value={price}
-                      onChange={(e) => setPrice(e.target.value)}
-                      placeholder="Price"
-                      className="w-full pr-10"
-                    />
+                    <Input type="text" value={price} onChange={e => setPrice(e.target.value)} placeholder="Price" className="w-full pr-10" />
                     <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <label className="block text-gray-700 font-medium">Locations</label>
                   <div className="relative">
-                    <Input
-                      type="text"
-                      value={location}
-                      onChange={(e) => setLocation(e.target.value)}
-                      placeholder="Location"
-                      className="w-full pr-10"
-                    />
+                    <Input type="text" value={location} onChange={e => setLocation(e.target.value)} placeholder="Location" className="w-full pr-10" />
                     <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <label className="block text-gray-700 font-medium">Number of rooms</label>
                   <div className="relative">
-                    <Input
-                      type="text"
-                      value={rooms}
-                      onChange={(e) => setRooms(e.target.value)}
-                      placeholder="Rooms"
-                      className="w-full pr-10"
-                    />
+                    <Input type="text" value={rooms} onChange={e => setRooms(e.target.value)} placeholder="Rooms" className="w-full pr-10" />
                     <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
                   </div>
                 </div>
@@ -148,17 +119,10 @@ const HomePage = () => {
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <img 
-                src="https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                alt="Luxury home interior" 
-                className="rounded-lg shadow-lg"
-              />
+              <img src="https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury home interior" className="rounded-lg shadow-lg" />
             </div>
             <div>
-              <SectionTitle 
-                title="Welcome to Royal Hermitage" 
-                subtitle="Exceptional Homes, Exceptional Service"
-              />
+              <SectionTitle title="Welcome to Royal Hermitage" subtitle="Exceptional Homes, Exceptional Service" />
               <p className="text-gray-600 mb-6">
                 At Royal Hermitage, we understand that a home is more than just a property—it's where life happens. For over two decades, we've been connecting discerning clients with exceptional properties that meet their unique lifestyle needs.
               </p>
@@ -176,16 +140,10 @@ const HomePage = () => {
       {/* Featured Properties */}
       <section className="py-20 px-4 bg-gray-50">
         <div className="container mx-auto">
-          <SectionTitle 
-            title="Featured Properties" 
-            subtitle="Discover Our Exclusive Listings" 
-            center
-          />
+          <SectionTitle title="Featured Properties" subtitle="Discover Our Exclusive Listings" center />
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProperties.map(property => (
-              <PropertyCard key={property.id} property={property} />
-            ))}
+            {featuredProperties.map(property => <PropertyCard key={property.id} property={property} />)}
           </div>
           
           <div className="text-center mt-12">
@@ -202,33 +160,13 @@ const HomePage = () => {
       {/* Services Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto">
-          <SectionTitle 
-            title="Our Services" 
-            subtitle="Comprehensive Real Estate Solutions" 
-            center
-          />
+          <SectionTitle title="Our Services" subtitle="Comprehensive Real Estate Solutions" center />
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <ServiceBox 
-              icon={<HomeIcon size={24} />} 
-              title="Property Buying"
-              description="We'll help you find and secure your dream property at the best possible price."
-            />
-            <ServiceBox 
-              icon={<BarChart4 size={24} />} 
-              title="Property Selling"
-              description="Maximize your property's value with our strategic marketing approach."
-            />
-            <ServiceBox 
-              icon={<Shield size={24} />} 
-              title="Property Management"
-              description="We handle the details so you can enjoy worry-free property ownership."
-            />
-            <ServiceBox 
-              icon={<Award size={24} />} 
-              title="Legal Consultation"
-              description="Our experts provide guidance on all legal aspects of real estate transactions."
-            />
+            <ServiceBox icon={<HomeIcon size={24} />} title="Property Buying" description="We'll help you find and secure your dream property at the best possible price." />
+            <ServiceBox icon={<BarChart4 size={24} />} title="Property Selling" description="Maximize your property's value with our strategic marketing approach." />
+            <ServiceBox icon={<Shield size={24} />} title="Property Management" description="We handle the details so you can enjoy worry-free property ownership." />
+            <ServiceBox icon={<Award size={24} />} title="Legal Consultation" description="Our experts provide guidance on all legal aspects of real estate transactions." />
           </div>
           
           <div className="text-center mt-12">
@@ -258,21 +196,14 @@ const HomePage = () => {
       {/* Testimonials */}
       <section className="py-20 px-4 bg-gray-50">
         <div className="container mx-auto">
-          <SectionTitle 
-            title="Client Testimonials" 
-            subtitle="What Our Clients Say About Us" 
-            center
-          />
+          <SectionTitle title="Client Testimonials" subtitle="What Our Clients Say About Us" center />
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map(testimonial => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-            ))}
+            {testimonials.map(testimonial => <TestimonialCard key={testimonial.id} testimonial={testimonial} />)}
           </div>
         </div>
       </section>
-    </>
-  );
+    </>;
 };
 
 // Property Type Pill Component
@@ -281,52 +212,39 @@ interface PropertyTypePillProps {
   active?: boolean;
   onClick?: () => void;
 }
-
-const PropertyTypePill = ({ type, active = false, onClick }: PropertyTypePillProps) => (
-  <button
-    onClick={onClick}
-    className={`px-5 py-2.5 rounded-full text-sm font-medium transition-colors ${
-      active 
-        ? 'bg-white text-black' 
-        : 'bg-white/20 text-white hover:bg-white/30'
-    }`}
-  >
+const PropertyTypePill = ({
+  type,
+  active = false,
+  onClick
+}: PropertyTypePillProps) => <button onClick={onClick} className={`px-5 py-2.5 rounded-full text-sm font-medium transition-colors ${active ? 'bg-white text-black' : 'bg-white/20 text-white hover:bg-white/30'}`}>
     {type}
-  </button>
-);
+  </button>;
 
 // Filter Pill Component
 interface FilterPillProps {
   label: string;
   active?: boolean;
 }
-
-const FilterPill = ({ label, active = false }: FilterPillProps) => (
-  <span
-    className={`px-4 py-1.5 rounded-full text-sm font-medium ${
-      active 
-        ? 'bg-gray-800 text-white' 
-        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-    }`}
-  >
+const FilterPill = ({
+  label,
+  active = false
+}: FilterPillProps) => <span className={`px-4 py-1.5 rounded-full text-sm font-medium ${active ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
     {label}
-  </span>
-);
-
+  </span>;
 interface ServiceBoxProps {
   icon: React.ReactNode;
   title: string;
   description: string;
 }
-
-const ServiceBox = ({ icon, title, description }: ServiceBoxProps) => (
-  <div className="bg-white p-6 rounded-lg shadow-md text-center transition-transform duration-300 hover:-translate-y-2">
+const ServiceBox = ({
+  icon,
+  title,
+  description
+}: ServiceBoxProps) => <div className="bg-white p-6 rounded-lg shadow-md text-center transition-transform duration-300 hover:-translate-y-2">
     <div className="bg-royal-light rounded-full p-4 inline-flex mb-4 text-royal-primary">
       {icon}
     </div>
     <h3 className="text-xl font-semibold mb-3 font-playfair">{title}</h3>
     <p className="text-gray-600">{description}</p>
-  </div>
-);
-
+  </div>;
 export default HomePage;
