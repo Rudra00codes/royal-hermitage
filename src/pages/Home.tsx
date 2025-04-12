@@ -1,7 +1,9 @@
 
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, MapPin, Home as HomeIcon, Phone, Shield, BarChart4, Award } from "lucide-react";
+import { ArrowRight, MapPin, Home as HomeIcon, Phone, Shield, BarChart4, Award, ChevronDown, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import SectionTitle from "@/components/ui/SectionTitle";
 import PropertyCard from "@/components/ui/PropertyCard";
 import TestimonialCard from "@/components/ui/TestimonialCard";
@@ -12,10 +14,16 @@ const HomePage = () => {
   // Featured properties (show only 3)
   const featuredProperties = properties.slice(0, 3);
   
+  // State for property search
+  const [propertyType, setPropertyType] = useState("");
+  const [location, setLocation] = useState("");
+  const [price, setPrice] = useState("");
+  const [rooms, setRooms] = useState("2 Bed rooms");
+  
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center">
+      <section className="relative min-h-screen flex items-center">
         <div className="absolute inset-0 bg-black/40 z-10"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center"
@@ -25,27 +33,93 @@ const HomePage = () => {
         ></div>
         
         <div className="container mx-auto px-4 relative z-20">
-          <div className="max-w-3xl animate-fade-in">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-playfair">
-              Transforming the future of home living
-            </h1>
-            <p className="text-xl text-white/90 mb-8">
-              Start your journey towards homeownership today!
-            </p>
-            
-            <div className="flex flex-wrap gap-4">
-              <Button asChild size="lg" className="bg-royal-primary hover:bg-royal-accent text-white">
-                <Link to="/properties">Explore Properties</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border-white/30">
-                <Link to="/contact">Contact Us</Link>
-              </Button>
+          <div className="max-w-full animate-fade-in">
+            {/* Property Type Pills */}
+            <div className="flex gap-3 mb-8">
+              <PropertyTypePill type="House" active={propertyType === "House"} onClick={() => setPropertyType("House")} />
+              <PropertyTypePill type="Apartment" active={propertyType === "Apartment"} onClick={() => setPropertyType("Apartment")} />
+              <PropertyTypePill type="Residential" active={propertyType === "Residential"} onClick={() => setPropertyType("Residential")} />
             </div>
             
-            <div className="flex gap-4 mt-12">
-              <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-white">Modern Home</span>
-              <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-white">Luxury</span>
-              <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-white">Eco Friendly</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 font-playfair leading-tight">
+              Build Your Future, One<br />Property at a Time.
+            </h1>
+            
+            <div className="hidden md:block w-1/2 ml-auto text-white/80 text-right mb-12">
+              <p className="text-lg leading-relaxed">
+                Own Your World, One Property at a Time. Own Your world, One Property at a Time. Own Your World, One Property at a Time. Own Your World, One Property at a Time.
+              </p>
+            </div>
+            
+            {/* Property Search Panel */}
+            <div className="bg-white rounded-xl p-6 md:p-8 mt-12 shadow-xl w-full max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Find the best place</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div className="space-y-2">
+                  <label className="block text-gray-700 font-medium">Looking for</label>
+                  <Input 
+                    type="text" 
+                    placeholder="Enter type"
+                    className="w-full"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="block text-gray-700 font-medium">Price</label>
+                  <div className="relative">
+                    <Input
+                      type="text"
+                      value={price}
+                      onChange={(e) => setPrice(e.target.value)}
+                      placeholder="Price"
+                      className="w-full pr-10"
+                    />
+                    <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label className="block text-gray-700 font-medium">Locations</label>
+                  <div className="relative">
+                    <Input
+                      type="text"
+                      value={location}
+                      onChange={(e) => setLocation(e.target.value)}
+                      placeholder="Location"
+                      className="w-full pr-10"
+                    />
+                    <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label className="block text-gray-700 font-medium">Number of rooms</label>
+                  <div className="relative">
+                    <Input
+                      type="text"
+                      value={rooms}
+                      onChange={(e) => setRooms(e.target.value)}
+                      placeholder="Rooms"
+                      className="w-full pr-10"
+                    />
+                    <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-6">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="text-gray-700 font-medium">Filter:</span>
+                  <FilterPill label="City" />
+                  <FilterPill label="House" />
+                  <FilterPill label="Residential" />
+                  <FilterPill label="Apartment" />
+                  <div className="ml-auto">
+                    <Button className="bg-black hover:bg-black/80 text-white rounded-full px-8">
+                      <Search size={18} className="mr-2" />
+                      Search Properties
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -200,6 +274,44 @@ const HomePage = () => {
     </>
   );
 };
+
+// Property Type Pill Component
+interface PropertyTypePillProps {
+  type: string;
+  active?: boolean;
+  onClick?: () => void;
+}
+
+const PropertyTypePill = ({ type, active = false, onClick }: PropertyTypePillProps) => (
+  <button
+    onClick={onClick}
+    className={`px-5 py-2.5 rounded-full text-sm font-medium transition-colors ${
+      active 
+        ? 'bg-white text-black' 
+        : 'bg-white/20 text-white hover:bg-white/30'
+    }`}
+  >
+    {type}
+  </button>
+);
+
+// Filter Pill Component
+interface FilterPillProps {
+  label: string;
+  active?: boolean;
+}
+
+const FilterPill = ({ label, active = false }: FilterPillProps) => (
+  <span
+    className={`px-4 py-1.5 rounded-full text-sm font-medium ${
+      active 
+        ? 'bg-gray-800 text-white' 
+        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+    }`}
+  >
+    {label}
+  </span>
+);
 
 interface ServiceBoxProps {
   icon: React.ReactNode;
