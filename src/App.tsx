@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Properties from "./pages/Properties";
 import PropertyDetail from "./pages/PropertyDetail";
+import PropertyOfTheWeek from "./pages/PropertyOfTheWeek";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/properties" element={<Properties />} />
             <Route path="/properties/:id" element={<PropertyDetail />} />
+            <Route path="/property-of-the-week" element={<PropertyOfTheWeek />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />

@@ -73,5 +73,18 @@ export const properties: PropertyType[] = [
     bathrooms: 5.5,
     area: 6200,
     type: "For Sale"
+  },
+  {
+    id: 7,
+    title: "Villa One Hyde Park",
+    price: 1200000,
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    location: "2050 Bloomingdale Ave, Los Angeles",
+    description: "Stunning contemporary villa with panoramic views, featuring premium finishes and smart home technology throughout.",
+    bedrooms: 4,
+    bathrooms: 2,
+    area: 350,
+    type: "For Sale"
   }
 ];
+

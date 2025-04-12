@@ -51,6 +51,24 @@ const HomePage = () => {
         </div>
       </section>
       
+      {/* Property of the Week Banner */}
+      <section className="py-8 bg-royal-primary text-white">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-playfair font-bold">Property Of The Week</h2>
+              <p className="text-white/80">Discover our exceptional featured property</p>
+            </div>
+            <Button asChild className="mt-4 md:mt-0 bg-royal-secondary hover:bg-royal-secondary/90">
+              <Link to="/property-of-the-week" className="flex items-center gap-2">
+                View Featured Property
+                <ArrowRight size={16} />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+      
       {/* About Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto">
