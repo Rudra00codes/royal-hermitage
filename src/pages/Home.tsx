@@ -97,7 +97,7 @@ const HomePage = () => {
       </section>
       
       {/* Property of the Week Banner */}
-      <section className="py-8 bg-royal-primary text-white">
+      <section className="py-8 text-white bg-neutral-950">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div>
