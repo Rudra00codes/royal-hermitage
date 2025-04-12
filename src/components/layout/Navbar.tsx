@@ -24,7 +24,11 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
   
   return (
-    <header className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
+    <header className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'backdrop-blur-md bg-white/70 shadow-md py-3' 
+        : 'backdrop-blur-sm bg-white/30 py-5'
+    }`}>
       <div className="container mx-auto flex justify-between items-center px-4 md:px-6">
         <Link to="/" className="flex items-center space-x-2">
           <span className="text-2xl font-bold text-royal-primary font-playfair">Royal Hermitage</span>
@@ -57,7 +61,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white w-full absolute top-full left-0 shadow-md animate-slide-in">
+        <div className="md:hidden backdrop-blur-md bg-white/90 w-full absolute top-full left-0 shadow-md animate-slide-in">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             <MobileNavLink to="/" onClick={toggleMenu}>Home</MobileNavLink>
             <MobileNavLink to="/about" onClick={toggleMenu}>About</MobileNavLink>
