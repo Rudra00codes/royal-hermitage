@@ -45,7 +45,7 @@ const HomePage = () => {
             </div>
             
             {/* Property Search Panel */}
-            <div className="p-6 md:p-8 mt-12 w-full max-w-6xl mx-auto backdrop-blur-md bg-white/100 rounded-2xl shadow-lg border border-white/20 transition-all duration-300 hover:shadow-xl">
+            <div className="p-6 md:p-8 mt-12 w-full max-w-6xl mx-auto backdrop-blur-md rounded-2xl shadow-lg border border-white/20 transition-all duration-300 hover:shadow-xl bg-zinc-300">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Find the best place</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
