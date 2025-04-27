@@ -6,6 +6,7 @@ import HeroSection from "@/components/home/HeroSection";
 import AboutSection from "@/components/home/AboutSection";
 import FeaturedProperties from "@/components/home/FeaturedProperties";
 import ServiceSection from "@/components/home/ServiceSection";
+import MortgageCalculator from "@/components/home/MortgageCalculator";
 import { testimonials } from "@/data/testimonials";
 import TestimonialCard from "@/components/ui/TestimonialCard";
 import SectionTitle from "@/components/ui/SectionTitle";
@@ -40,6 +41,7 @@ const HomePage = () => {
       <AboutSection />
       <FeaturedProperties />
       <ServiceSection />
+      <MortgageCalculator />
 
       {/* Call to Action */}
       <section className="py-20 px-4 bg-royal-primary text-white">
