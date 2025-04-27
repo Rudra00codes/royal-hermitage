@@ -6,18 +6,32 @@ This guide covers the deployment process and domain setup for the Royal Hermitag
 
 1. **Domain Registration**
    - Register domain at a registrar of your choice (e.g., GoDaddy, Namecheap)
-   - Set up DNS records:
+   - Choose one of these DNS configuration options:
+
+     Option 1 - Using Vercel Nameservers (Recommended):
      ```
-     A     @     -> [Your hosting IP]
-     CNAME www   -> @
-     CNAME api   -> @
-     CNAME cdn   -> @
+     ns1.vercel-dns.com
+     ns2.vercel-dns.com
      ```
 
-2. **SSL Certificate**
-   - Install SSL certificate through hosting provider
-   - Enable HTTPS redirection in Nginx config
-   - Verify SSL configuration using SSL checker tools
+     Option 2 - Using Custom DNS Records:
+     ```
+     A     @     -> 76.76.21.21
+     CNAME www   -> cname.vercel-dns.com
+     ```
+
+2. **Vercel Domain Configuration**
+   - Go to Vercel project dashboard
+   - Navigate to Settings > Domains
+   - Click "Add Domain"
+   - Enter your domain name
+   - Follow Vercel's verification process
+   - Wait for DNS propagation (can take up to 48 hours)
+
+3. **SSL Certificate**
+   - Vercel automatically provisions SSL certificates
+   - Verify HTTPS is working after DNS propagation
+   - SSL renewal is automatic
 
 ## Hosting Setup
 
@@ -44,24 +58,13 @@ This guide covers the deployment process and domain setup for the Royal Hermitag
 
 ## Deployment Process
 
-1. **Build Application**
-   ```bash
-   # Install dependencies
-   npm install
-   
-   # Create production build
-   npm run build:prod
-   ```
+1. **Build and Deploy**
+   - Push changes to your GitHub repository
+   - Vercel automatically builds and deploys
+   - Check deployment status in Vercel dashboard
 
-2. **Deploy Files**
-   ```bash
-   # Using provided deploy script
-   chmod +x deploy.sh
-   ./deploy.sh
-   ```
-
-3. **Verify Deployment**
-   - Check https://royalhermitage.com
+2. **Verify Deployment**
+   - Check your custom domain (e.g., https://royalhermitage.com)
    - Verify all routes work correctly
    - Test contact form submission
    - Validate SSL certificate
@@ -69,35 +72,37 @@ This guide covers the deployment process and domain setup for the Royal Hermitag
 ## Post-Deployment
 
 1. **Monitoring**
-   - Set up uptime monitoring
-   - Configure error logging
-   - Monitor server resources
+   - Use Vercel Analytics for performance monitoring
+   - Set up custom uptime monitoring if needed
+   - Monitor deployment status in Vercel dashboard
 
 2. **Maintenance**
-   - Regular SSL certificate renewal
-   - Weekly server updates
-   - Daily backups of site content
+   - SSL certificates are auto-renewed by Vercel
+   - Regular code updates via Git
+   - Monitor Vercel deployment logs
 
 ## Troubleshooting
 
 Common issues and solutions:
 
-1. **404 Errors on Routes**
-   - Verify Nginx configuration for SPA routing
-   - Check file permissions
+1. **Domain Not Connecting**
+   - Verify DNS records are correct
+   - Check DNS propagation using a tool like whatsmydns.net
+   - Ensure Vercel domain verification is complete
 
 2. **SSL Issues**
-   - Verify SSL certificate installation
-   - Check SSL configuration in Nginx
-   - Validate DNS propagation
+   - Wait for DNS propagation
+   - Check Vercel SSL certificate status
+   - Verify HTTPS redirection
 
 3. **Performance Issues**
-   - Check server resources
-   - Verify Nginx caching configuration
-   - Monitor application logs
+   - Check Vercel Analytics
+   - Monitor serverless function usage
+   - Review deployment build logs
 
 ## Support
 
 For deployment assistance:
 - Email: support@royalhermitage.com
 - Technical Support: (800) ROYAL-HM
+- Vercel Support: https://vercel.com/support
