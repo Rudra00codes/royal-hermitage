@@ -8,6 +8,7 @@ import PropertyCard from "@/components/ui/PropertyCard";
 import TestimonialCard from "@/components/ui/TestimonialCard";
 import { properties } from "@/data/properties";
 import { testimonials } from "@/data/testimonials";
+
 const HomePage = () => {
   // Featured properties (show only 3)
   const featuredProperties = properties.slice(0, 3);
@@ -45,7 +46,7 @@ const HomePage = () => {
             </div>
             
             {/* Property Search Panel */}
-            <div className="p-6 md:p-8 mt-12 shadow-xl w-full max-w-6xl mx-auto bg-stone-100 rounded-2xl">
+            <div className="p-6 md:p-8 mt-12 w-full max-w-6xl mx-auto backdrop-blur-md bg-white/70 rounded-2xl shadow-lg border border-white/20 transition-all duration-300 hover:shadow-xl">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Find the best place</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -231,6 +232,7 @@ const FilterPill = ({
 }: FilterPillProps) => <span className={`px-4 py-1.5 rounded-full text-sm font-medium ${active ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
     {label}
   </span>;
+
 interface ServiceBoxProps {
   icon: React.ReactNode;
   title: string;
@@ -247,4 +249,5 @@ const ServiceBox = ({
     <h3 className="text-xl font-semibold mb-3 font-playfair">{title}</h3>
     <p className="text-gray-600">{description}</p>
   </div>;
+
 export default HomePage;
