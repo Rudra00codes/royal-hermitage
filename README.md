@@ -1,73 +1,227 @@
-# Welcome to your Lovable project
+# Royal Hermitage - Luxury Real Estate Website
 
-## Project info
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Architecture](#architecture)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Pages and Components](#pages-and-components)
+- [Design Patterns](#design-patterns)
+- [Responsive Design](#responsive-design)
+- [Accessibility](#accessibility)
+- [Getting Started](#getting-started)
+- [Future Enhancements](#future-enhancements)
 
-**URL**: https://lovable.dev/projects/7b52db66-2768-4fb5-8e5c-4f60113f4d3f
+## Overview
 
-## How can I edit this code?
+Royal Hermitage is a sophisticated, responsive luxury real estate website designed to showcase high-end properties and provide personalized real estate services. The application features an elegant, professional design with smooth transitions and immersive property showcases, creating an exceptional user experience across all device types.
 
-There are several ways of editing your application.
+The website consists of five core pages (Home, About, Properties, Services, Contact) that provide a comprehensive view of our luxury real estate offerings. With a focus on visual aesthetics and user experience, the site incorporates subtle animations, a refined dark mode, and responsive layouts optimized for all devices.
 
-**Use Lovable**
+## Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7b52db66-2768-4fb5-8e5c-4f60113f4d3f) and start prompting.
+### Core Functionality
+- **Property Listings**: Showcase luxury properties with detailed information including price, location, amenities, and virtual tours
+- **Advanced Property Search**: Filter properties by type, location, price range, and exclusive features
+- **Premium Services**: Detailed pages for specialized real estate services
+- **Contact Concierge**: Direct communication channel with our luxury real estate experts
+- **Company Profile**: Comprehensive about section highlighting our legacy and team of experts
 
-Changes made via Lovable will be committed automatically to this repo.
+### User Experience Enhancements
+- **Elegant Dark Mode**: User-controlled theme switching with refined transitions
+- **Responsive Design**: Optimized layouts for all devices with special attention to tablet interfaces
+- **Loading States**: Polished loading animations and transitions
+- **Section Animations**: Subtle content reveal animations for enhanced engagement
+- **Interactive Elements**: Thoughtful hover effects and state changes
+- **Navigation Aids**: Convenient scroll-to-top functionality
+- **Error Handling**: Elegant error pages with helpful navigation options
 
-**Use your preferred IDE**
+## Architecture
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Royal Hermitage follows a modern frontend architecture with a lightweight backend for data persistence. The application is built as a single-page application (SPA) using React, with routing handled by Wouter.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Frontend Architecture
+- **Component-Based Structure**: Modular components for reusability and maintainability
+- **Context API**: Used for state management (theme, responsive queries)
+- **Custom Hooks**: Encapsulate complex logic and provide reusable functionality
+- **CSS-in-JS**: Tailwind for styling with custom utility classes
+- **Responsive Design System**: Mobile-first approach with breakpoints for different device sizes
 
-Follow these steps:
+### Backend Architecture
+- **Express Server**: Lightweight Node.js server to handle API requests
+- **In-Memory Storage**: Simple data persistence for development
+- **RESTful API**: Clean API endpoints for data operations
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Tech Stack
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Frontend
+- **React**: UI library for building component-based interfaces
+- **TypeScript**: Static typing for improved code quality and developer experience
+- **Tailwind CSS**: Utility-first CSS framework for styling
+- **Wouter**: Lightweight routing library for React
+- **Framer Motion**: Animation library for smooth UI transitions
+- **Lucide React**: Icon library for UI elements
+- **React Hook Form**: Form handling with validation
+- **Zod**: Schema validation for forms and data
+- **React Query**: Data fetching and caching
+- **Shadcn UI**: Component library built on Radix UI primitives
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Backend
+- **Express**: Web server framework for Node.js
+- **Drizzle ORM**: SQL toolkit with TypeScript support
+- **Drizzle Zod**: Schema validation integration
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### Development Tools
+- **Vite**: Next-generation frontend build tooling
+- **ESBuild**: Fast JavaScript bundler
+- **TypeScript**: Static typing for improved code quality
+
+## Project Structure
+
+The project follows a clear separation of concerns with dedicated folders for different aspects of the application:
+
+```
+├── client/                 # Frontend code
+│   ├── src/
+│   │   ├── components/     # UI components
+│   │   │   ├── common/     # Shared components (Header, Footer)
+│   │   │   ├── home/       # Home page components
+│   │   │   ├── properties/ # Property-related components
+│   │   │   ├── services/   # Service-related components
+│   │   │   ├── ui/         # Core UI components
+│   │   ├── data/           # Static data and models
+│   │   ├── hooks/          # Custom React hooks
+│   │   ├── layouts/        # Layout components
+│   │   ├── lib/            # Utility functions and libraries
+│   │   ├── pages/          # Page components
+│   ├── index.html          # HTML entry point
+├── server/                 # Backend code
+│   ├── index.ts            # Server entry point
+│   ├── routes.ts           # API routes
+│   ├── storage.ts          # Data storage
+├── shared/                 # Shared code between client and server
+│   ├── schema.ts           # Data schemas
 ```
 
-**Edit a file directly in GitHub**
+## Pages and Components
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Pages
+- **Home**: Landing page with property highlights, services overview, and testimonials
+- **About**: Company information, team members, and mission statement
+- **Properties**: Comprehensive property listings with filtering
+- **Services**: Detailed information about real estate services
+- **Contact**: Contact form and location information
+- **404 (Not Found)**: Custom error page with navigation options
 
-**Use GitHub Codespaces**
+### Key Components
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+#### Layout Components
+- **Header**: Navigation and brand identity with responsive menu
+- **Footer**: Site links, contact information, and copyright
+- **MainLayout**: Structure for consistent page layout
 
-## What technologies are used for this project?
+#### UI Components
+- **PropertyCard**: Display individual property information
+- **PropertyGrid**: Responsive grid layout for property listings
+- **ServiceCard**: Display individual service information
+- **LoadingAnimation**: Visual feedback during page loading
+- **ThemeToggle**: Switch between light and dark modes
+- **SectionReveal**: Animate content as it enters viewport
+- **ScrollToTop**: Button to navigate to the top of the page
 
-This project is built with:
+#### Utility Components
+- **Container**: Consistent content width and padding
+- **Button**: Styled button with variants
+- **Card**: Content container with consistent styling
+- **Form**: Form components with validation
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Design Patterns
 
-## How can I deploy this project?
+### Component Composition
+Components are designed to be modular and composable, following a hierarchy that promotes reusability. Smaller, atomic components are combined to create more complex features.
 
-Simply open [Lovable](https://lovable.dev/projects/7b52db66-2768-4fb5-8e5c-4f60113f4d3f) and click on Share -> Publish.
+### Context Provider Pattern
+The application uses React Context API for state management across components:
+- **ThemeProvider**: Manages light/dark mode preferences
+- **QueryClientProvider**: Handles data fetching and caching
 
-## Can I connect a custom domain to my Lovable project?
+### Custom Hooks
+Custom hooks encapsulate complex logic and provide reusable functionality:
+- **useTheme**: Access and manipulate theme settings
+- **useResponsive**: Detect device type and screen size
+- **useScrollSpy**: Track scroll position for navigation highlighting
+- **useToast**: Display toast notifications
 
-Yes it is!
+### Render Props
+Used in select components to allow for flexible rendering of child content.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Responsive Design
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+The website implements a comprehensive responsive design system that adapts to different screen sizes and devices:
+
+### Breakpoints
+- **Mobile**: < 640px
+- **Tablet**: 640px - 1024px
+- **Desktop**: > 1024px
+
+### Responsive Strategies
+- **Mobile-first approach**: Base styles for mobile with progressive enhancement
+- **Fluid typography**: Text scales appropriately across screen sizes
+- **Grid layouts**: Responsive grid system for content organization
+- **Flexible images**: Images scale and maintain aspect ratios
+- **Component adaptation**: Components change layout and functionality based on screen size
+- **Tablet-specific optimizations**: Special attention to tablet layout with icon-based navigation
+
+### Dark Mode
+The site implements a complete dark mode theme with seamless transitions between light and dark themes. The theme respects user preference and persists across sessions.
+
+## Accessibility
+
+The website is built with accessibility in mind:
+
+- **Semantic HTML**: Proper use of HTML5 elements for clear document structure
+- **ARIA attributes**: Enhanced screen reader support
+- **Keyboard navigation**: All interactive elements are accessible via keyboard
+- **Color contrast**: Meets WCAG guidelines for readability
+- **Focus management**: Clear visual indicators for focused elements
+- **Alt text**: Descriptive text for images
+- **Responsive design**: Accessible on various screen sizes and devices
+
+## Getting Started
+
+### Prerequisites
+- Node.js (v14.0 or higher)
+- npm or yarn
+
+### Installation
+1. Clone the repository
+   ```
+   git clone https://github.com/yourusername/estate-haven.git
+   cd estate-haven
+   ```
+
+2. Install dependencies
+   ```
+   npm install
+   ```
+
+3. Start the development server
+   ```
+   npm run dev
+   ```
+
+4. Open your browser to http://localhost:5000
+
+## Future Enhancements
+
+- User authentication and personalized property recommendations
+- Property comparison feature
+- Advanced property search with more filters
+- Real-time notifications for new listings
+- Interactive property maps with neighborhood information
+- Virtual property tours and 3D visualizations
+- Integration with mortgage calculators
+- Accessibility improvements and WCAG compliance audit
+- Performance optimizations for larger data sets
+- Internationalization and multi-language support
