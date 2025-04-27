@@ -7,6 +7,7 @@ import AboutSection from "@/components/home/AboutSection";
 import FeaturedProperties from "@/components/home/FeaturedProperties";
 import ServiceSection from "@/components/home/ServiceSection";
 import MortgageCalculator from "@/components/home/MortgageCalculator";
+import VirtualTours from "@/components/home/VirtualTours";
 import { testimonials } from "@/data/testimonials";
 import TestimonialCard from "@/components/ui/TestimonialCard";
 import SectionTitle from "@/components/ui/SectionTitle";
@@ -41,6 +42,7 @@ const HomePage = () => {
       <AboutSection />
       <FeaturedProperties />
       <ServiceSection />
+      <VirtualTours />
       <MortgageCalculator />
 
       {/* Call to Action */}
